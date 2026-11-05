@@ -1,0 +1,21 @@
+# One-click deploy on Render: New > Blueprint > pick this repo.
+# The persistent disk needs a paid instance; on the free plan data resets when the service restarts.
+services:
+  - type: web
+    name: agromanage
+    runtime: node
+    plan: starter
+    buildCommand: echo "nothing to build"
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: DATA_DIR
+        value: /var/data
+      - key: MAX_MEMBERS
+        value: "5"
+      - key: ANTHROPIC_API_KEY
+        sync: false
+    disk:
+      name: agro-data
+      mountPath: /var/data
+      sizeGB: 1

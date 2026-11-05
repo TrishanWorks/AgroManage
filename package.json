@@ -1,0 +1,9 @@
+{
+  "name": "agromanage",
+  "version": "2.0.0",
+  "description": "Remote farm task management with live presence, chat and photo evidence.",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "embed": "node embed-images.js" },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}
